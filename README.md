@@ -12,3 +12,6 @@ Inputs:
 - Growth rate
 - Discount rate
 - Time horizon (years)
+
+# Update 1: Switched from yfinance to Alpha Vantage
+Switched because yfinance does not provide enough data for a professional DCF calculation.
