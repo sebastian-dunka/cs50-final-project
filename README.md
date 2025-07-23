@@ -4,7 +4,7 @@ Currently in development. Python + Flask web app that uses API data to display a
 
 Status: Core logic and API integration in progress.
 
-# (Test) Step 1  Mini DCF Calculator – Python
+# Test: Mini DCF Calculator – Python
 
 A simple Python script to estimate the intrinsic value of a company using a basic DCF model.
 Inputs:
