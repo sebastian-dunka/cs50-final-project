@@ -9,16 +9,16 @@ To run the DCF Stock Analyzer, you need Python 3.9 or higher and the packages st
 Make sure you have valid API keys for both Alpha Vantage and FRED.
 
 - Create a file named .env in the project directory containing:
-ALPHA_API_KEY=your_alpha_vantage_key
+ALPHA_API_KEY=your_alpha_vantage_key \
 FRED_API_KEY=your_fred_key
 
 -These keys are loaded in the script using
-import requests
-import os
-import time
-from dotenv import load_dotenv
+import requests \
+import os \
+import time \
+from dotenv import load_dotenv \
 
--After installing the requirements and adding your API keys, you can start the web application with: 
+- After installing the requirements and adding your API keys, you can start the web application with: 
 streamlit run main.py
 
 # Update 4 (11.10.2025):
