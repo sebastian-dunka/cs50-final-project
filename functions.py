@@ -20,9 +20,10 @@ def init_data(ticker_symbol):
     global market_cap, beta, d, z, r_f, r_d, net_debt, shares_outstanding, current_stock_price, currency
 
     def get_api_data(api):
-        r = requests.get(api)
+        r = requests.get(api, timeout=20)
+        r.raise_for_status()
         data = r.json()
-        if "Note" in data or data is None:
+        if not data or any(k in data for k in ("Note", "Information", "Error Message")):
             raise Exception(f"Fehlerhafte API-Antwort: {data}")
         return data
 
@@ -34,13 +35,13 @@ def init_data(ticker_symbol):
     fred = f'https://api.stlouisfed.org/fred/series/observations?series_id=GS10&api_key={FRED_API_KEY}&file_type=json'
 
     cashflow_data = get_api_data(cashflow)['annualReports']
-    time.sleep(20)
+    time.sleep(1)
     income_data = get_api_data(income_statement)['annualReports']
-    time.sleep(20)
+    time.sleep(1)
     overview_data = get_api_data(overview)
-    time.sleep(20)
+    time.sleep(1)
     balance_data = get_api_data(balance_sheet)['annualReports']
-    time.sleep(20)
+    time.sleep(1)
     global_data = get_api_data(global_quote)['Global Quote']
     fred_data = get_api_data(fred)
 
