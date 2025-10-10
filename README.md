@@ -12,7 +12,7 @@ Make sure you have valid API keys for both Alpha Vantage and FRED.
 ALPHA_API_KEY=your_alpha_vantage_key \
 FRED_API_KEY=your_fred_key
 
--These keys are loaded in the script using
+- These keys are loaded in the script using \
 import requests \
 import os \
 import time \
