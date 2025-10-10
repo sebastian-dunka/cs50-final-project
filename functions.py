@@ -20,9 +20,10 @@ def init_data(ticker_symbol):
     global market_cap, beta, d, z, r_f, r_d, net_debt, shares_outstanding, current_stock_price, currency
 
     def get_api_data(api):
-        r = requests.get(api)
+        r = requests.get(api, timeout=20)
+        r.raise_for_status()
         data = r.json()
-        if "Note" in data or data is None:
+        if not data or any(k in data for k in ("Note", "Information", "Error Message")):
             raise Exception(f"Fehlerhafte API-Antwort: {data}")
         return data
 
